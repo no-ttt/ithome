@@ -18,7 +18,6 @@ new Marker(options: Object?, legacyOptions: Options?)
 
 ## Default Marker
 其實 Mapbox 的 Default Marker 是藍色的，不過我覺得紅色比較親切所以放紅色的哈～
-
 好的進入正題，要加入 Default Marker 非常簡單 (端上程式碼)
 
 ```jsx=
