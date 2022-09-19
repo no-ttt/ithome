@@ -27,8 +27,7 @@ const marker = new mapboxgl.Marker()
   .addTo(map);
 ```
 
-`setLngLat` 代表所設置的經緯度。
-然後你就會得到一張帶有標記地點的台灣地圖～
+`setLngLat` 代表所設置的經緯度，然後你就會得到一張帶有標記地點的台灣地圖～
 
 ![](https://i.imgur.com/j3I4vJL.png)
 
