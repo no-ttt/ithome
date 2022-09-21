@@ -16,41 +16,27 @@ export default class Main extends Component {
 
   componentDidMount() {
     const { lng, lat, zoom } = this.state;
-    // const map = new mapboxgl.Map ({
-    //   container: this.mapContainer.current,
-    //   style: 'mapbox://styles/mapbox/streets-v11',
-    //   center: [lng, lat],
-    //   zoom: zoom
-    // });
-
-    // AttributionControl
-    const map = new mapboxgl.Map({
+    const map = new mapboxgl.Map ({
       container: this.mapContainer.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
-      zoom: zoom,
-      attributionControl: false, 
-    })
-      .addControl(new mapboxgl.AttributionControl({
-        customAttribution: 'Map design by me'
-      }));
+      zoom: zoom
+    });
+
+    // add popup
+    // const popup = new mapboxgl.Popup({
+    //   closeButton: false
+    // })
+    //   .setLngLat([121, 23.5])
+    //   .setHTML('<h1>Hello World!</h1>')
+    //   .addTo(map);
 
 
-    // FullscreenControl
-    map.addControl(new mapboxgl.FullscreenControl());
-
-
-    //  GeolocateControl
-    map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      trackUserLocation: true,
-      showUserHeading: true,
-    }));
-
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
+    // marker add popup
+    const marker = new mapboxgl.Marker()
+      .setLngLat([121, 23.5])
+      .setPopup(new mapboxgl.Popup().setHTML("<h1>Hello World!</h1>")) // add popup
+      .addTo(map);
 
   }
 
