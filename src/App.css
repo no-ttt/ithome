@@ -41,10 +41,26 @@
   height: 100vh;
 }
 
-.marker {
-  display: block;
-  border: none;
+.res-detail-intro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.res-pic {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.res-title-txt {
+  font-size: 16px;
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.res-detail-txt {
+  font-size: 14px;
 }
