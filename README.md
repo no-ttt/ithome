@@ -48,7 +48,7 @@ render() {
 }
 ```
 
-我們再透過 `Marker` 將餐廳位置都標出來：(利用 `map` 輸出所有點)
+再透過 `Marker` 將餐廳位置都標出來：(利用 `map` 輸出所有點)
 ```jsx=
 data.map((d) => (
   new mapboxgl.Marker({
