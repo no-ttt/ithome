@@ -141,4 +141,4 @@ map.addControl(new mapboxgl.GeolocateControl({
 
 
 ## Reference
-- [TDX｜觀光資訊](https://tdx.transportdata.tw/api-service/swagger#/)
+- [TDX 運輸資料流通服務](https://tdx.transportdata.tw/api-service/swagger#/)
