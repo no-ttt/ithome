@@ -70,7 +70,7 @@ data.map((d) => (
 
 ![](https://i.imgur.com/Cg34xzR.jpg)
 
-因為我們還沒學到 Layer，所以 Marker 就先全部標出來了，之後會教大家怎麼使用 Layer 做群集 (就是會長的比較漂亮啦，不會有密集恐懼症嗯嗯嗯)
+因為我們還沒學到 Layer，所以 Marker 就先全部標出來了，之後會教大家怎麼使用 Layer 做群集 (就是會長的比較漂亮啦，不會有密集恐懼症)
 
 
 ## 提供餐廳資訊
@@ -104,7 +104,7 @@ data.map((d) => (
 
 因為有些餐廳沒有照片，所以我放了一張圖片替代這種狀況：
 
-![](https://i.imgur.com/tOfKPMe.png =95x100) 
+![](https://i.imgur.com/PeHiIyH.png)
 
 圖片來源：https://www.bomb01.com/article/50295
 
