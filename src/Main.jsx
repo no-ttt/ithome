@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoibm91c2VydXNlIiwiYSI6ImNsODR2dnJydTAxNXYzdnBzZWUwdWZkY3QifQ.TiXa2TtlGjSLY2gXNphj-w'
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'
 
 export default class Main extends Component {
   constructor(props) {
