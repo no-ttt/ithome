@@ -23,8 +23,21 @@ export default class Main extends Component {
       zoom: zoom
     });
 
-    map.on('dblclick', () => {
-      alert('你點擊了我好幾次！');
+    let count = 0;
+    map.on('idle', () => {
+      console.log('A idle event occurred.');
+      count > 0 &&
+      new mapboxgl.Popup({
+        closeOnMove: true
+      })
+        .setLngLat([121, 23.5])
+        .setHTML(`<h1>count: ${count}</h1>`)
+        .addTo(map);
+      count += 1;
+    });
+    
+    map.on('error', () => {
+      alert('A error event occurred.');
     });
   }
 
