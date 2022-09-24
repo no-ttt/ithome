@@ -23,17 +23,18 @@ export default class Main extends Component {
       zoom: zoom
     });
 
-    let count = 0;
-    map.on('idle', () => {
-      console.log('A idle event occurred.');
-      count > 0 &&
-      new mapboxgl.Popup({
-        closeOnMove: true
-      })
-        .setLngLat([121, 23.5])
-        .setHTML(`<h1>count: ${count}</h1>`)
-        .addTo(map);
-      count += 1;
+    const marker = new mapboxgl.Marker({
+      color: "pink",
+      draggable: true,
+    })
+      .setLngLat([121, 23.5])
+      .addTo(map);
+
+    marker.on('dragend', () => {
+      alert(`You put me down at: 
+          Longitude: ${marker.getLngLat().lng} 
+          Latitude: ${marker.getLngLat().lat}`
+      );
     });
     
     map.on('error', () => {
