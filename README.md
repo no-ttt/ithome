@@ -1,5 +1,5 @@
 ###### tags: `ithome` `ironman`
-# Day 08 - Event (1)：Interaction
+# Day 08 - Events (1)：Interaction
 
 讓我們來跟地圖做一些互動吧！
 其實前幾天的文章我們就有跟地圖做到互動了，像是點擊 Marker 或是使用者定位等等，那我們這幾天會特別專注於 Event 的部分～
