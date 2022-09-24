@@ -32,7 +32,7 @@ off(type, layerIds, listener)
 ```
 
 ## Interaction
-知道如何觸發 Event 後，我們就能來介紹一些常見的應用了～
+知道如何觸發 Event 後，我們就能來介紹一些常見關於互動的應用了～
 
 - `mousedown`：地圖上按下鼠標
 - `mouseup`：地圖上按下鼠標後放開
