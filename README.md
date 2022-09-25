@@ -7,21 +7,15 @@
 來看看常用到的 Movement 有哪些～
 
 ## Movement
-- `movestart`：地圖移動前
-    - 常與 `jumpTo` 搭配使用
-- `move`：地圖移動時的過渡期間
-    - 常與 `flyTo` 搭配使用
-- `moveend`：地圖移動後
-    - 常與 `jumpTo` 搭配使用
+- `movestart`：地圖移動前，常與 `jumpTo` 搭配
+- `move`：地圖移動時的過渡期間，常與 `flyTo` 搭配
+- `moveend`：地圖移動後，常與 `jumpTo` 搭配
 - `dragstart`：拖動平移前
 - `drag`：拖動平移的過渡期間
 - `dragend`：拖動平移後
-- `zoomstart`：地圖從一個縮放級別轉換到另一個縮放級別之前
-    - 常與 `flyTo` 搭配使用
-- `zoom`：地圖從一個縮放級別轉換到另一個縮放級別的過渡期間
-    - 常與 `flyTo` 搭配使用
-- `zoomend`：地圖從一個縮放級別轉換到另一個縮放級別之後
-    - 常與 `flyTo` 搭配使用
+- `zoomstart`：地圖從一個縮放級別轉換到另一個縮放級別之前，常與 `flyTo` 搭配
+- `zoom`：地圖從一個縮放級別轉換到另一個縮放級別的過渡期間，常與 `flyTo` 搭配
+- `zoomend`：地圖從一個縮放級別轉換到另一個縮放級別之後，常與 `flyTo` 搭配
 
 `flyTo` 跟 `jumpTo` 在下一篇會來做介紹，可以看到常用的動作主要是在移動 (move)、拖拉 (drag) 和縮放 (zoom) 的應用上，那如果對其他有興趣的可以到官網看一下～
 
