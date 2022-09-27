@@ -125,7 +125,7 @@ const map = new mapboxgl.Map ({
 ## 過渡動畫
 雖然我列了 3 個，但有過渡動畫的只有 `easeTo` 和 `flyTo`，它們很像彼此的進化體所以就一起介紹了～ ~~絕對不是因為強迫症~~
 
-> 這邊統一以 A 點代表就位置，B 點代表新的位置說明
+> 這邊統一以 A 點代表舊位置，B 點代表新的位置說明
 
 - `jumpTo(options, eventData)`：沒有過渡動畫，從 A 跳到 B (就是這麼白話)
 - `easeTo(options, eventData)`：有過渡動畫，從 A 移動到 B
