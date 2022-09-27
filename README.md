@@ -114,8 +114,7 @@ const map = new mapboxgl.Map ({
 - [Camera and animations](https://docs.mapbox.com/android/maps/guides/camera-and-animation/)
 - [Camera｜Mapbox](https://docs.mapbox.com/mapbox-gl-js/api/map/#instance-members-camera)
 
-
-###### tags: `ithome` `ironman`
+----------
 # Day 12 - Camera (2)：為轉換視角加上過渡動畫
 
 知道如何控制視角位置後，今天我們來替這個過程加上過渡動畫！
