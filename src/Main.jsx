@@ -1,15 +1,15 @@
 import React, { Component } from "react"
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoibm91c2VydXNlIiwiYSI6ImNsODR2dnJydTAxNXYzdnBzZWUwdWZkY3QifQ.TiXa2TtlGjSLY2gXNphj-w'
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lng: 120,
-      lat: 23.5,
-      zoom: 7,
+      lng: 120.6717952160162,
+      lat: 24.16853028577123,
+      zoom: 18,
     };
     this.mapContainer = React.createRef();
   }
@@ -18,22 +18,41 @@ export default class Main extends Component {
     const { lng, lat, zoom } = this.state;
     const map = new mapboxgl.Map ({
       container: this.mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/dark-v10',
       center: [lng, lat],
-      zoom: zoom
+      zoom: zoom,
+      bearing: 12,
+      pitch: 60, 
+      interactive: false
     });
 
-    const marker = new mapboxgl.Marker({
-      color: "pink",
-      draggable: true,
-    })
-      .setLngLat([121, 23.5])
-      .addTo(map);
+    // pixels the map pans when the up or down arrow is clicked
+    const deltaDistance = 100;
+ 
+    // degrees the map rotates when the left or right arrow is clicked
+    const deltaDegrees = 25;  
 
-    marker.on('dragend', () => {
-      alert(`You put me down at: 
-          Longitude: ${marker.getLngLat().lng} 
-          Latitude: ${marker.getLngLat().lat}`
+    map.on('load', () => {
+      map.getCanvas().focus();
+       
+      map.getCanvas().addEventListener(
+        'keydown',
+        (e) => {
+          e.preventDefault();
+          if (e.which === 38)                         // up
+            map.panBy([0, -deltaDistance])
+          else if (e.which === 40)                    // down
+            map.panBy([0, deltaDistance])
+          else if (e.which === 37)                    // left
+            map.easeTo({
+              bearing: map.getBearing() - deltaDegrees,
+            })
+          else if (e.which === 39)                    // right
+            map.easeTo({
+              bearing: map.getBearing() + deltaDegrees,
+            })
+        },  
+        true
       );
     });
     
