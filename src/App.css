@@ -39,6 +39,8 @@
 
 .map-container {
   height: 100vh;
+  position: fixed;
+  width: 70%;
 }
 
 .res-detail-intro {
@@ -47,20 +49,31 @@
   align-items: center;
 }
 
-.res-pic {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 10px;
-  object-fit: cover;
-}
-
-.res-title-txt {
-  font-size: 16px;
-  font-weight: bolder;
-  margin-bottom: 5px;
-}
-
 .res-detail-txt {
   font-size: 14px;
+}
+
+#features {
+  width: 30%;
+  margin-left: 70%;
+  font-family: sans-serif;
+  overflow-y: scroll;
+  background-color: #fafafa;
+}
+
+section {
+  padding: 50px 50px;
+  line-height: 25px;
+  border-bottom: 1px solid #ddd;
+  opacity: 0.25;
+  font-size: 14px;
+}
+
+section.active {
+  opacity: 1;
+}
+
+section:last-child {
+  border-bottom: none;
+  margin-bottom: 200px;
 }
