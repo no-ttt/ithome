@@ -125,7 +125,7 @@ map.on('load', () => {
 
 [Github 完整程式碼](https://github.com/no-ttt/ithome/tree/Line_layer)
 
-既然今天我們都畫出台灣地圖了，那明天來幫他上個色好了！
+既然今天我們都畫出台灣地圖了，那明天來幫他上個色好了～
 
 
 ## Reference
