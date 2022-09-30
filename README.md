@@ -64,7 +64,8 @@ GeoJSON 是一種基於 JSON 的地理空間數據格式，用來表示地理要
 
 ![](https://i.imgur.com/YnaNcYe.png)
 
-那眼尖的你一定發現了，資料格式沒有 GeoJSON 檔，沒綽我們要先來做資料處理的部分了 ...
+那眼尖的你一定發現了，資料格式沒有 GeoJSON 檔？
+沒綽我們要先來做資料處理的部分了 ...
 這邊推薦一個 [mapshaper](https://mapshaper.org/) 的網站，來繼續看下去你就知道它多麼神奇了 (⁎⁍̴̛ᴗ⁍̴̛⁎)
 
 資料我們先下載 `SHP` 格式，然後開啟 mapshaper，直接把檔案拖進去做處理：
@@ -111,6 +112,7 @@ map.on('load', () => {
 });
 ```
 稍微來解釋一下程式碼，不過其實一看就懂了吧 XDD
+
 `Taiwan.json` 這個檔案是我們剛剛處理完的匯出檔，`addSource` 將資料加入地圖，`type` 記得要選 `geojson`，`taiwan` 是這個資料在地圖的名稱；
 在 `addLayer` 的這個 `id` 則是 Layer 的名稱 (`taiwanLayer`)，那資料來源 `source` 這邊我們填上 `taiwan`，`type` 記得選 `line`，其餘的設定隨意～
 
