@@ -132,7 +132,6 @@ map.on('load', () => {
 - [addSource｜Mapbox](https://docs.mapbox.com/mapbox-gl-js/api/map/#map#addsource)
 - [GeoJSONSource](https://docs.mapbox.com/mapbox-gl-js/api/sources/#geojsonsource)
 - [Line Layer (style-spec)](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#line)
-- [Line Example｜Mapbox](https://docs.mapbox.com/mapbox-gl-js/example/?topic=Layers&search=line)
 - [D3.js 繪製臺灣地圖](https://ithelp.ithome.com.tw/articles/10223786)
 - [直轄市、縣市界線(TWD97經緯度)｜政府資料開放平臺](https://data.gov.tw/dataset/7442)
 - [mapshaper](https://mapshaper.org/)
