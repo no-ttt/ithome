@@ -123,4 +123,3 @@ city.forEach((c, i) => {
 - [JSON格式化在線工具](https://coding.tools/tw/json-formatter)
 - [Filter](https://docs.mapbox.com/help/glossary/filter/)
 - [Fill Layer properties](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill)
-- [Fill Layer (style-spec)](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill)
