@@ -1,5 +1,5 @@
 ###### tags: `ithome` `ironman`
-# Day 14 - Layers (1)：Line
+# Day 15 - Layers (1)：Line
 
 上一篇介紹 Layer 的架構時，我們有說過，「 除了 `background` 和 `sky` 以外，每個圖層都需要從 `source` 引用數據 」，那我們要怎麼引用這些數據？在資料格式上有沒有限制？
 
