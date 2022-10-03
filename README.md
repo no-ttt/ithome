@@ -77,14 +77,12 @@ map.on('load', () => {
 });
 ```
 
-- `addSource`：將資料來源 (`output`) 加到地圖
-    - source id： `restaurant`
-- `addLayer`：加入圖層
-    - layer id：`unclustered-point`
-    - `type` 指定為 `circle`
-    - source 引用 `restaurant`
+- `circle-color`：圓的顏色
+- `circle-radius`：圓的半徑長，，以 `px` 為單位
+- `circle-stroke-width`：圓的外框寬度，以 `px` 為單位
+- `circle-stroke-color`：圓的外框顏色
 
-最後設定好樣式屬性後，你就會得到一張很多圓點的餐廳地圖：
+設定好樣式屬性後，你就會得到一張很多圓點的餐廳地圖：
 
 ![](https://i.imgur.com/iInT1it.jpg)
 
@@ -97,6 +95,6 @@ map.on('load', () => {
 
 
 ## Reference
-- [Circle Layer properties](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#symbol)
+- [Circle Layer properties](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#circle)
 - [TDX 運輸資料流通服務](https://tdx.transportdata.tw/api-service/swagger#/)
 - [Is it possible to convert regular JSON to GeoJSON?](https://gis.stackexchange.com/questions/73756/is-it-possible-to-convert-regular-json-to-geojson)
