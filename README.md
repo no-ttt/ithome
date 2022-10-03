@@ -1,7 +1,7 @@
 ###### tags: `ithome` `ironman`
 # Day 19 - Layers (5)：Cluster
 
-不知道大家還記不記得我們在[Day 07 - 來做一個美食地圖吧！](https://ithelp.ithome.com.tw/articles/10296538)的時候做了一張美食地圖？
+不知道大家還記不記得我們在 [Day 07 - 來做一個美食地圖吧！](https://ithelp.ithome.com.tw/articles/10296538) 做了一張美食地圖？
 當初許的承諾今天就來實現吧！
 我們來把那張密集的很可怕的地圖做視覺上的修改～
 
