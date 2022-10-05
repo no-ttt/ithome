@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import output from './output.json'
+import traffic from './traffic.json'
 
 mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'
 
@@ -9,8 +9,8 @@ export default class Main extends Component {
     super(props);
     this.state = {
       lng: 120.2,
-      lat: 23.2,
-      zoom: 8,
+      lat: 23.5,
+      zoom: 7,
     };
     this.mapContainer = React.createRef();
   }
@@ -21,88 +21,55 @@ export default class Main extends Component {
     // init map
     const map = new mapboxgl.Map ({
       container: this.mapContainer.current,
-      style: 'mapbox://styles/mapbox/streets-v11',
+      style: 'mapbox://styles/mapbox/dark-v10',
       center: [lng, lat],
       zoom: zoom,
     })
 
     map.on('load', () => {
-      map.addSource('restaurant', {
-        type: 'geojson',
-        data: output,
-        cluster: true,
-        clusterMaxZoom: 14,
-        clusterRadius: 80
+      map.addSource('traffic', {
+        'type': 'geojson',
+        'data': traffic
       });
        
       map.addLayer({
-        id: 'clusters',
-        type: 'circle',
-        source: 'restaurant',
-        filter: ['has', 'point_count'],
-        paint: {
-          'circle-color': [
-            'step',
-            ['get', 'point_count'],
-            '#51bbd6',
-            100,
-            '#f1f075',
-            250,
-            '#f28cb1'
+        'id': 'traffic-heat',
+        'type': 'heatmap',
+        'source': 'traffic',
+        'maxzoom': 15,
+        'paint': {
+          // use sequential color palette to use exponentially as the weight increases
+          'heatmap-color': [
+            'interpolate',
+            ['linear'],
+            ['heatmap-density'],
+            0,
+            'rgba(236,222,239,0)',
+            0.2,
+            'rgb(208,209,230)',
+            0.4,
+            'rgb(166,189,219)',
+            0.6,
+            'rgb(103,169,207)',
+            0.8,
+            'rgb(28,144,153)'
           ],
-          'circle-radius': [
-            'step',
-            ['get', 'point_count'],
-            20,
-            100,
-            30,
-            750,
-            40
-          ]
+          // increase radius as zoom increases
+          'heatmap-radius': {
+            'stops': [
+              [11, 15],
+              [15, 20]
+            ]
+          },
+          // decrease opacity to transition into the circle layer
+          'heatmap-opacity': {
+            'default': 1,
+            'stops': [
+              [14, 1],
+              [15, 0]
+            ]
+          }
         }
-      });
-       
-      map.addLayer({
-        id: 'cluster-count',
-        type: 'symbol',
-        source: 'restaurant',
-        filter: ['has', 'point_count'],
-        layout: {
-          'text-field': '{point_count_abbreviated}',
-          'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
-          'text-size': 12
-        }
-      });
-       
-      map.addLayer({
-        id: 'unclustered-point',
-        type: 'circle',
-        source: 'restaurant',
-        filter: ['!', ['has', 'point_count']],
-        paint: {
-          'circle-color': 'red',
-          'circle-radius': 4,
-          'circle-stroke-width': 1,
-          'circle-stroke-color': '#fff'
-        }
-      });
-       
-      map.on('click', 'clusters', (e) => {
-        const features = map.queryRenderedFeatures(e.point, {
-          layers: ['clusters']
-        });
-        const clusterId = features[0].properties.cluster_id;
-        map.getSource('restaurant').getClusterExpansionZoom(
-          clusterId,
-          (err, zoom) => {
-            if (err) return;
-        
-            map.easeTo({
-              center: features[0].geometry.coordinates,
-              zoom: zoom
-            });
-         }
-        );
       });
     });
   }
