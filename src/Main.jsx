@@ -19,8 +19,8 @@ export default class Main extends Component {
     super(props);
     this.state = {
       open: false,
-      data: [],
       map: null,
+      data: [],
       name: "",
       des: "",
       lat: "",
@@ -98,7 +98,7 @@ export default class Main extends Component {
     let newWaypoint = ""
     if (waypoint !== "") {
       newWaypoint = waypoint + ';' + lng.toString() + ',' + lat.toString()
-      this.getRoute(newWaypoint, traffic);
+      this.getRoute(newWaypoint, traffic)
       new mapboxgl.Marker({
         color: "red"
       })
@@ -136,7 +136,9 @@ export default class Main extends Component {
         <div id="content">
           <Card sx={{ display: 'flex', justifyContent: 'space-between', alignItems: "center", width: 280, height: 30, padding: "10px", marginBottom: "15px" }}>
             <div>交通工具</div>
-            <Select value={traffic} size="small" onChange={(e) => { this.setState({ traffic: e.target.value }); this.getRoute(waypoint, e.target.value) }}>
+            <Select value={traffic} size="small" 
+              onChange={(e) => { this.setState({ traffic: e.target.value }); this.getRoute(waypoint, e.target.value) }}
+            >
               <MenuItem value="driving-traffic">driving-traffic</MenuItem>
               <MenuItem value="driving">driving</MenuItem>
               <MenuItem value="walking">walking</MenuItem>
@@ -162,23 +164,33 @@ export default class Main extends Component {
             <div style={{ padding: "20px" }}>
               <div className="input-info">
                 <span>景點名稱</span>
-                <TextField id="name" label="name" variant="outlined" size="small" onChange={(e) => this.setState({ name: e.target.value })} />
+                <TextField id="name" label="name" variant="outlined" size="small" 
+                  onChange={(e) => this.setState({ name: e.target.value })} 
+                />
               </div>
               <div className="input-info">
                 <span>備註</span>
-                <TextField id="des" label="des" variant="outlined" size="small" onChange={(e) => this.setState({ des: e.target.value })} />
+                <TextField id="des" label="des" variant="outlined" size="small" 
+                  onChange={(e) => this.setState({ des: e.target.value })} 
+                />
               </div>
               <div className="input-info">
                 <span>經度</span>
-                <TextField id="longitude" label="longitude" variant="outlined" size="small" onChange={(e) => this.setState({ lng: e.target.value })} />
+                <TextField id="longitude" label="longitude" variant="outlined" size="small" 
+                  onChange={(e) => this.setState({ lng: e.target.value })} 
+                />
               </div>
               <div className="input-info">
                 <span>緯度</span>
-                <TextField id="latitude" label="latitude" variant="outlined" size="small" onChange={(e) => this.setState({ lat: e.target.value })} />
+                <TextField id="latitude" label="latitude" variant="outlined" size="small" 
+                  onChange={(e) => this.setState({ lat: e.target.value })} 
+                />
               </div>
               <div className="input-info">
                 <span>景點照片</span>
-                <TextField id="img" label="img" variant="outlined" size="small" onChange={(e) => this.setState({ img: e.target.value })} />
+                <TextField id="img" label="img" variant="outlined" size="small" 
+                  onChange={(e) => this.setState({ img: e.target.value })} 
+                />
               </div>
               <button className="add-btn" onClick={this.submit}>Add</button>
             </div>
