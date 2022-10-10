@@ -61,7 +61,6 @@ export default class Main extends Component {
 
   spinGlobe = (map) => {
     const { userInteracting, spinEnabled } = this.state
-
     if (spinEnabled && !userInteracting) {
       let distancePerSecond = 360 / secondsPerRevolution;
       const center = map.getCenter();
@@ -72,15 +71,14 @@ export default class Main extends Component {
 
   flyTo = () => {
     const { map } = this.state
+    this.setState({ spinEnabled: false })
+
     map.flyTo({
       center: [138.7186086, 35.3606247],
       zoom: 12,
       duration: 10000,
       essential: true,
       pitch: 75
-    });
-    map.on('moveend', () => {
-      this.spinGlobe(map);
     });
   }
 
