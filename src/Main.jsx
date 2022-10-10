@@ -1,15 +1,19 @@
 import React, { Component } from "react"
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoibm91c2VydXNlIiwiYSI6ImNsODR2dnJydTAxNXYzdnBzZWUwdWZkY3QifQ.TiXa2TtlGjSLY2gXNphj-w'
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN'
+const secondsPerRevolution = 100;
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      lng: 90,
-      lat: 0,
-      zoom: 2,
+      lng: 120.5,
+      lat: 23.5,
+      zoom: 1.5,
+      userInteracting: false,
+      spinEnabled: true,
+      map: null
     };
     this.mapContainer = React.createRef();
   }
@@ -18,46 +22,43 @@ export default class Main extends Component {
     const { lng, lat, zoom } = this.state;
     const map = new mapboxgl.Map ({
       container: this.mapContainer.current,
-      // style: 'mapbox://styles/mapbox/satellite-v9',
-      style: 'mapbox://styles/mapbox/light-v9',
+      style: 'mapbox://styles/mapbox/satellite-v9',
       center: [lng, lat],
       zoom: zoom,
-      projection: 'globe'
+      projection: 'globe',
     });
+
+    this.setState({ map: map })
 
     map.on('style.load', () => {
-      map.setFog({}); // enable atmosphere and stars
-      });
-
-    const el = document.createElement('div');
-    el.className = 'marker';
-    const size = 80;
-    el.style.width = `${size}px`;
-    el.style.height = `${size}px`;
-
-    const popup = new mapboxgl.Popup({ offset: 25 });
-    popup.setHTML(`<h1>Taiwan is Here!</h1>`);
-
-    new mapboxgl.Marker({
-      element: el,
-      // Point markers toward the nearest horizon
-      rotationAlignment: 'horizon',
-      offset: [0, -size / 2]
-      })
-      .setLngLat([121, 23.5])
-      .setPopup(popup)
-      .addTo(map);
-
-    // new mapboxgl.Popup({
-    //   closeOnMove: true
-    // })
-    //   .setLngLat([121, 23.5])
-    //   .setHTML(`<h1>Taiwan is Here!</h1>`)
-    //   .addTo(map);
-    
-    map.on('error', () => {
-      alert('A error event occurred.');
+      map.setFog({});
     });
+
+    map.on('mousedown', () => {
+      this.setState({ userInteracting: true })
+    });
+
+    map.on('mouseup', () => {
+      this.setState({ userInteracting: false })
+      this.spinGlobe(map);
+    });
+
+    map.on('moveend', () => {
+      this.spinGlobe(map);
+    });
+
+    this.spinGlobe(map);
+  }
+
+  spinGlobe = (map) => {
+    const { userInteracting, spinEnabled } = this.state
+
+    if (spinEnabled && !userInteracting) {
+      let distancePerSecond = 360 / secondsPerRevolution;
+      const center = map.getCenter();
+      center.lng -= distancePerSecond;
+      map.easeTo({ center, duration: 1000, easing: (n) => n });
+    }
   }
 
   render() {
