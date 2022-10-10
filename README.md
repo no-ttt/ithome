@@ -91,7 +91,7 @@ componentDidMount() {
 }
 ```
 
-簡單解釋一下這段：在點擊地圖前一刻，`userInteracting`（使用者進行互動）先關掉，並呼叫 `spinGlobe()` 讓地球不要轉動；在點擊地圖後，再把 `userInteracting` 打開，在下次的移動時就會再次呼叫 `spinGlobe()`，地球就會轉動了！
+簡單解釋一下這段：在點擊地圖的當下，`userInteracting`（使用者進行互動）設為 `true`；在按下滑鼠放開後，再把 `userInteracting` 關閉，並呼叫 `spinGlobe()` 讓地球不要轉動，在下次的移動時就會再次呼叫 `spinGlobe()`，地球就會轉動了！
 
 所以如果你點了地圖一下，地球就會停止轉動，等到你拖動一下地圖它才會繼續轉喔～
 
