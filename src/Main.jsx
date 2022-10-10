@@ -73,14 +73,13 @@ export default class Main extends Component {
   flyTo = () => {
     const { map } = this.state
     map.flyTo({
-      center: [138.7186086, 35.3606247], // Fly to the selected target
+      center: [138.7186086, 35.3606247],
       zoom: 12,
-      duration: 10000, // Animate over 12 seconds
-      essential: true, // This animation is considered essential with
+      duration: 10000,
+      essential: true,
       pitch: 75
     });
     map.on('moveend', () => {
-      this.setState({ userInteracting: false })
       this.spinGlobe(map);
     });
   }
