@@ -32,6 +32,15 @@ export default class Main extends Component {
 
     map.on('style.load', () => {
       map.setFog({});
+      
+      map.addSource('mapbox-dem', {
+        'type': 'raster-dem',
+        'url': 'mapbox://mapbox.terrain-rgb'
+      });
+      map.setTerrain({
+        'source': 'mapbox-dem',
+        'exaggeration': 1.5
+      });
     });
 
     map.on('mousedown', () => {
@@ -61,10 +70,26 @@ export default class Main extends Component {
     }
   }
 
+  flyTo = () => {
+    const { map } = this.state
+    map.flyTo({
+      center: [138.7186086, 35.3606247], // Fly to the selected target
+      zoom: 12,
+      duration: 10000, // Animate over 12 seconds
+      essential: true, // This animation is considered essential with
+      pitch: 75
+    });
+    map.on('moveend', () => {
+      this.setState({ userInteracting: false })
+      this.spinGlobe(map);
+    });
+  }
+
   render() {
     return (
       <div>
         <div ref={this.mapContainer} className="map-container" />
+        <button id="fly" onClick={this.flyTo}>Fly</button>
       </div>
     );
   }

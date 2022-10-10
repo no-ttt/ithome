@@ -40,3 +40,17 @@
 .map-container {
   height: 100vh;
 }
+
+#fly {
+  position: absolute;
+  margin: 20px;
+  width: 10%;
+  padding: 15px;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  /* opacity: 0.8; */
+  border: none;
+  border: 1px solid black;
+  box-shadow: 2px 1px;
+}
