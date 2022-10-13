@@ -91,4 +91,4 @@ map.addLayer(
 
 ## Reference
 - [Display buildings in 3D](https://docs.mapbox.com/mapbox-gl-js/example/3d-buildings/)
-- [fill-extrusion](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill-extrusion)
+- [fill-extrusion｜Mapbox](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#fill-extrusion)
